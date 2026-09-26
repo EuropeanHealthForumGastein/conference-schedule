@@ -22,7 +22,7 @@ const OrganizedBy = React.memo(function HeadlineTicker({
         className={`w-full overflow-hidden rounded-lg border border-white/10 mt-4 ${className}`}
       >
         <div className="px-4 py-2">
-          <span className="text-base font-medium text-neutral-100 3xl:text-2xl 4xl:text-3xl 5xl:text-2xl">
+          <span className="text-2xl font-medium text-neutral-100">
             {headline}
           </span>
         </div>

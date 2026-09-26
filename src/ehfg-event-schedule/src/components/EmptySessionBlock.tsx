@@ -4,18 +4,27 @@ interface EmptySessionBlockProps {
 
 export default function EmptySessionBlock({ variant }: EmptySessionBlockProps) {
   const isCurrent = variant === 'current';
-
-  if (isCurrent) {
-    return (
-      <div className="3xl:text-2xl 4xl:text-3xl 5xl:text-3xl rounded-2xl p-10 bg-white/15 bg-gradient-to-br from-white/25 to-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_4px_12px_rgba(0,0,0,0.4)] text-neutral-100 h-[320px] flex items-center justify-center text-center text-2xl font-semibold">
-        No session in progress
-      </div>
-    );
-  }
+  const message = isCurrent
+    ? 'No session in progress'
+    : 'No later session today';
 
   return (
-    <div className="3xl:text-2xl 4xl:text-3xl 5xl:text-3xl rounded-2xl p-8 bg-white/15 bg-gradient-to-br from-white/25 to-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.6),0_4px_12px_rgba(0,0,0,0.4)] text-neutral-100 h-[280px] flex items-center justify-center text-center font-medium">
-      No later session today
+    <div
+      className={`rounded-2xl border border-dashed border-white/15 bg-white/[0.03] text-neutral-400 flex flex-col items-center justify-center gap-3 text-center p-10 text-3xl ${
+        isCurrent ? 'h-[320px]' : 'h-[280px]'
+      }`}
+    >
+      <svg
+        className="w-10 h-10 opacity-40"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 7v5l3 3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+      <p className="font-medium">{message}</p>
     </div>
   );
 }

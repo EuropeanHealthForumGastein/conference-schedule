@@ -39,11 +39,14 @@ export default function SpeakersSection({
 
   return (
     <div className={`mt-2 ${className}`}>
-      <p className="text-sm text-neutral-100 mb-3 3xl:text-2xl 4xl:text-3xl 5xl:text-3xl font-medium">
-        Speakers:
+      <p className="text-2xl text-neutral-100 mb-3 font-medium">
+        Speakers ({speakers.length})
       </p>
-      <div className="relative overflow-hidden rounded-lg bg-white/10 border border-white/10">
-        <div className="flex py-3 px-4 gap-4">
+      <div className="relative overflow-hidden rounded-xl bg-white/5 border border-white/10">
+        <div
+          key={currentIndex}
+          className="flex py-4 px-4 gap-4 animate-fadeInUp"
+        >
           {currentSpeakers.map((speaker, idx) => (
             <div
               key={`${speaker.speaker}-${currentIndex}-${idx}`}
@@ -53,6 +56,18 @@ export default function SpeakersSection({
             </div>
           ))}
         </div>
+        {speakerPairs.length > 1 && (
+          <div className="flex justify-center gap-2 pb-3">
+            {speakerPairs.map((_, idx) => (
+              <span
+                key={idx}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === currentIndex ? 'w-6 bg-white/80' : 'w-2 bg-white/30'
+                }`}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

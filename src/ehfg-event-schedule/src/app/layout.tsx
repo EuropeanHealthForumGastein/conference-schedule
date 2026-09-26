@@ -3,6 +3,7 @@ import Image from 'next/image';
 import './globals.css';
 import { sailec } from './fonts';
 import { assetPath } from '@/utils/assetPath';
+import ScaleStage from '@/components/ScaleStage';
 const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata: Metadata = {
@@ -39,6 +40,7 @@ export default function RootLayout({
         }}
         className="antialiased min-h-screen h-full bg-[#160540] bg-fixed relative overflow-hidden"
       >
+        {/* Decorative art always fills the real viewport, independent of the scaled schedule canvas */}
         <div className="yearly-look-art" aria-hidden="true">
           <Image
             src={assetPath('ehfg-2026-strips.png')}
@@ -57,7 +59,7 @@ export default function RootLayout({
             priority
           />
         </div>
-        <div className="relative z-10">{children}</div>
+        <ScaleStage>{children}</ScaleStage>
       </body>
     </html>
   );

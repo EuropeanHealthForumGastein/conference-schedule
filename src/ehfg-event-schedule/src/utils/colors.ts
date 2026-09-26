@@ -3,6 +3,7 @@ export const COLOR_CFG = {
   current: {
     border: 'border-green-400/40',
     label: 'text-green-100',
+    badge: 'bg-green-500/90 text-white',
     accentFrom: 'from-green-400/40',
     accentTo: 'to-green-900/30',
     subtitle: 'text-green-100',
@@ -13,6 +14,7 @@ export const COLOR_CFG = {
   next: {
     border: 'border-blue-400/40',
     label: 'text-blue-100',
+    badge: 'bg-blue-500/90 text-white',
     accentFrom: 'from-blue-400/40',
     accentTo: 'to-blue-900/30',
     subtitle: 'text-blue-100',
@@ -23,6 +25,7 @@ export const COLOR_CFG = {
   networking: {
     border: 'border-purple-400/40',
     label: 'text-purple-100',
+    badge: 'bg-purple-500/90 text-white',
     accentFrom: 'from-purple-400/40',
     accentTo: 'to-purple-900/30',
     subtitle: 'text-purple-100',

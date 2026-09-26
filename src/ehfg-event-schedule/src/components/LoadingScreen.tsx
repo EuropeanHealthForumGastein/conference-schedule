@@ -3,7 +3,7 @@ import { assetPath } from '@/utils/assetPath';
 
 export default function LoadingScreen() {
   return (
-    <div className="min-h-screen w-full flex flex-col gap-8 items-center justify-center bg-opacity-20 bg-black backdrop-blur text-neutral-200">
+    <div className="h-full w-full flex flex-col gap-8 items-center justify-center bg-opacity-20 bg-black backdrop-blur text-neutral-200">
       <Image
         src={assetPath('ehfg-white.svg')}
         alt="EHFG Logo"
