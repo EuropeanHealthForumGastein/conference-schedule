@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import './globals.css';
 import { sailec } from './fonts';
 import { assetPath } from '@/utils/assetPath';
@@ -28,21 +29,35 @@ export default function RootLayout({
       </head>
       <body
         style={{
-          // The supplied 2026 artwork contains two transparent foreground layers.
-          // Draw the blue yearly-look field in CSS so it stays smooth at any size.
           backgroundImage: [
-            `url("${assetPath('ehfg-2026-stars.png')}")`,
-            `url("${assetPath('ehfg-2026-strips.png')}")`,
             'radial-gradient(ellipse at 62% 8%, rgba(140, 174, 210, 0.92) 0%, rgba(53, 102, 169, 0.44) 25%, rgba(17, 55, 132, 0) 50%)',
             'linear-gradient(160deg, #19499a 0%, #10377f 43%, #160540 100%)',
           ].join(', '),
-          backgroundPosition: 'center, 69% top, center, center',
-          backgroundSize: '100% 100%, auto 112%, cover, cover',
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
         }}
         className="antialiased min-h-screen h-full bg-[#160540] bg-fixed relative overflow-hidden"
       >
-        {children}
+        <div className="yearly-look-art" aria-hidden="true">
+          <Image
+            src={assetPath('ehfg-2026-strips.png')}
+            alt=""
+            width={3840}
+            height={4312}
+            className="yearly-look-strips"
+            priority
+          />
+          <Image
+            src={assetPath('ehfg-2026-stars.png')}
+            alt=""
+            width={3840}
+            height={3076}
+            className="yearly-look-stars"
+            priority
+          />
+        </div>
+        <div className="relative z-10">{children}</div>
       </body>
     </html>
   );
