@@ -27,17 +27,20 @@ export default function RootLayout({
         <link rel="icon" href={assetPath('favicon.ico')} />
       </head>
       <body
-        // We build the background image URL dynamically so that it respects the
-        // basePath on GitHub Pages. The env var is optional; the value is also
-        // injected by Next.js via basePath for assets referenced with leading slash
-        // in components, but not inside arbitrary Tailwind CSS url() values.
         style={{
-          backgroundImage:
-            'url(' +
-            `${assetPath('background.png')}` +
-            '),radial-gradient(circle at 50% 50%,#4f9bd3,transparent 90%)',
+          // The supplied 2026 artwork contains two transparent foreground layers.
+          // Draw the blue yearly-look field in CSS so it stays smooth at any size.
+          backgroundImage: [
+            `url("${assetPath('ehfg-2026-stars.png')}")`,
+            `url("${assetPath('ehfg-2026-strips.png')}")`,
+            'radial-gradient(ellipse at 62% 8%, rgba(140, 174, 210, 0.92) 0%, rgba(53, 102, 169, 0.44) 25%, rgba(17, 55, 132, 0) 50%)',
+            'linear-gradient(160deg, #19499a 0%, #10377f 43%, #160540 100%)',
+          ].join(', '),
+          backgroundPosition: 'center, 69% top, center, center',
+          backgroundSize: '100% 100%, auto 112%, cover, cover',
+          backgroundRepeat: 'no-repeat',
         }}
-        className="antialiased min-h-screen h-full bg-background-dark bg-cover bg-center bg-no-repeat relative overflow-hidden"
+        className="antialiased min-h-screen h-full bg-[#160540] bg-fixed relative overflow-hidden"
       >
         {children}
       </body>

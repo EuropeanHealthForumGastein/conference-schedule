@@ -13,7 +13,7 @@ export default function Header({ activeDate, now }: HeaderProps) {
           Live Schedule
         </h1>
         <p className="mt-2 sm:mt-3 md:mt-4 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl font-medium text-neutral-200 tracking-wide text-center xl:text-left">
-          European Health Forum Gastein 2025
+          European Health Forum Gastein 2026
         </p>
         <p className="mt-1 sm:mt-2 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl text-neutral-100 text-center xl:text-left font-light">
           {activeDate ? formatDateLong(activeDate) : ''}
