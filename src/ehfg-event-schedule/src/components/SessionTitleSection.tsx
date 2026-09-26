@@ -21,7 +21,7 @@ export function SessionTitleSection({
         >
           {shortId}
         </span>
-        <h3 className="flex-1 min-w-0 text-7xl leading-relaxed font-bold mb-2 text-white relative z-10 rounded-lg px-2 py-1 line-clamp-3">
+        <h3 className="flex-1 min-w-0 text-5xl leading-relaxed font-bold mb-2 text-white relative z-10 rounded-lg px-2 py-1 line-clamp-3">
           {title}
         </h3>
       </div>
