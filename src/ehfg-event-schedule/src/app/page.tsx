@@ -69,8 +69,8 @@ function HomeContent() {
       )}
 
       {/* Main content - room columns */}
-      <main className="w-full px-[5%] pt-10 pb-20">
-        <div className="w-full max-w-[95%] mx-auto flex flex-wrap justify-center items-start gap-16">
+      <main className="w-full px-[3%] pt-10 pb-20">
+        <div className="w-full mx-auto flex flex-wrap justify-center items-start gap-10">
           {roomColumns.length > 0 ? (
             roomColumns.map((rc) => (
               <div
