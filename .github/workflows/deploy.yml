@@ -50,8 +50,6 @@ jobs:
 
       - name: Build (Next.js static export)
         working-directory: ./src/ehfg-event-schedule
-        env:
-          NEXT_PUBLIC_BASE_PATH: /ehfg-conference-schedule
         run: pnpm build
 
       - name: Add .nojekyll to allow directories starting with _
