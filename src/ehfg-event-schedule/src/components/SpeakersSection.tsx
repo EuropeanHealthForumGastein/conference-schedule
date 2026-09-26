@@ -39,9 +39,7 @@ export default function SpeakersSection({
 
   return (
     <div className={`mt-2 ${className}`}>
-      <p className="text-2xl text-neutral-100 mb-3 font-medium">
-        Speakers ({speakers.length})
-      </p>
+      <p className="text-2xl text-neutral-100 mb-3 font-medium">Speakers</p>
       <div className="relative overflow-hidden rounded-xl bg-white/5 border border-white/10">
         <div
           key={currentIndex}
