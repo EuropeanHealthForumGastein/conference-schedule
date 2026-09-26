@@ -44,6 +44,10 @@ jobs:
           chmod +x update-sessions.sh
           ./update-sessions.sh
 
+      - name: Test
+        working-directory: ./src/ehfg-event-schedule
+        run: pnpm test
+
       - name: Build (Next.js static export)
         working-directory: ./src/ehfg-event-schedule
         env:

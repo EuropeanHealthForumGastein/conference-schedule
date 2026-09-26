@@ -76,9 +76,9 @@ body {
 }
 
 .yearly-look-stars {
-  top: 64%;
-  left: 50%;
+  top: 74%;
+  left: 46%;
   width: auto;
-  height: 127vh;
+  height: 150vh;
   transform: translate(-50%, -50%) rotate(0.5deg);
 }

@@ -2,6 +2,7 @@ export { default as RoomColumn } from './RoomColumn';
 export { default as Header } from './Header';
 export { default as LoadingScreen } from './LoadingScreen';
 export { default as NoSessionsToday } from './NoSessionsToday';
+export { default as ScheduleError } from './ScheduleError';
 export { default as SpeakerCard } from './SpeakerCard';
 export { TimeDebugger } from './TimeDebugger';
 export { SessionTiming } from './SessionTiming';

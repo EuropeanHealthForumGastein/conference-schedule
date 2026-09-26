@@ -56,6 +56,21 @@ The application includes debug features for testing and development purposes:
 - Simulate session transitions and timing
 - Debug session progress indicators and timing displays
 
+#### Automated checks
+
+From `src/ehfg-event-schedule`, run:
+
+```bash
+pnpm test           # run the test suite once
+pnpm test:watch     # re-run relevant tests while developing
+pnpm test:coverage  # generate a coverage report
+```
+
+The tests validate the downloaded `sessions.json`, schedule calculations, and
+the visible loading, error, empty, current-session, and upcoming-session states.
+They run automatically for pull requests and branch pushes, and again before
+the GitHub Pages build is deployed.
+
 ### 2. EHFG Countdown (`src/ehfg-countdown/`)
 A simple countdown timer application that displays the time remaining until the conference begins.
 - Countdown timer with days, hours, minutes, and seconds

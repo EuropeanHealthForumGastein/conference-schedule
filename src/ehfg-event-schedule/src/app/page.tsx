@@ -8,6 +8,7 @@ import {
   RoomColumn,
   LoadingScreen,
   NoSessionsToday,
+  ScheduleError,
   TimeDebugger,
 } from '../components';
 
@@ -18,6 +19,7 @@ function HomeContent() {
 
   const {
     loading,
+    error,
     now,
     activeDate,
     roomColumns,
@@ -44,6 +46,11 @@ function HomeContent() {
   if (loading) {
     return <LoadingScreen />;
   }
+
+  if (error) {
+    return <ScheduleError message={error} />;
+  }
+
   return (
     <div className="min-h-screen w-full overflow-hidden bg-black/20 text-neutral-100 font-sans">
       <Header activeDate={activeDate} now={now} />

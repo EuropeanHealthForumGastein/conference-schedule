@@ -1,0 +1,48 @@
+name: Test
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test, lint, and build
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./src/ehfg-event-schedule
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
+        with:
+          cache: true
+          cache_dependency_path: ./src/ehfg-event-schedule/pnpm-lock.yaml
+          package_json_file: ./src/ehfg-event-schedule/package.json
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: pnpm test
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /ehfg-conference-schedule
+        run: pnpm build

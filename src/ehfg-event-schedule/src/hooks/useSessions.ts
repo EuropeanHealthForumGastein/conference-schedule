@@ -11,6 +11,7 @@ import {
 export function useSessions() {
   const [sessions, setSessions] = useState<Session[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [baseTime, setBaseTime] = useState(new Date());
   const [timeOffset, setTimeOffset] = useState(0); // offset in milliseconds
 
@@ -27,9 +28,20 @@ export function useSessions() {
 
   useEffect(() => {
     // Use a relative path so it works both locally and on GitHub Pages
+    setError(null);
     fetch('sessions.json')
-      .then((r) => r.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Schedule request failed (${response.status})`);
+        }
+
+        return response.json();
+      })
       .then((data: Session[]) => {
+        if (!Array.isArray(data)) {
+          throw new Error('Schedule response is not a list');
+        }
+
         // Decode HTML entities in session data
         const decodedSessions = data.map((session) => ({
           ...session,
@@ -49,6 +61,9 @@ export function useSessions() {
       })
       .catch((err) => {
         console.error('Failed to load sessions', err);
+        setError(
+          'The schedule could not be loaded. Please check the connection and refresh the page.'
+        );
         setLoading(false);
       });
   }, []);
@@ -202,6 +217,7 @@ export function useSessions() {
   return {
     sessions,
     loading,
+    error,
     now,
     activeDate,
     roomColumns,
