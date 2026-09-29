@@ -79,6 +79,6 @@ body {
   top: 74%;
   left: 46%;
   width: auto;
-  height: 150vh;
-  transform: translate(-50%, -50%) rotate(0.5deg);
+  height: 155vh;
+  transform: translate(-50%, -47%) rotate(-7deg);
 }
