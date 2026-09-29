@@ -31,7 +31,7 @@ export default function ScaleStage({ children }: ScaleStageProps) {
   return (
     // bg-black/20 lives here (not inside the scaled canvas) so the dim tint is uniform
     // across the whole viewport, with no seam where the canvas falls short of the edges
-    <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-black/20">
+    <div className="fixed inset-0 flex items-center justify-center overflow-hidden bg-black/20 backdrop-blur-sm">
       <div
         style={{ width: DESIGN_WIDTH, height: DESIGN_HEIGHT, transform: `scale(${scale})` }}
         className="relative flex-shrink-0"
