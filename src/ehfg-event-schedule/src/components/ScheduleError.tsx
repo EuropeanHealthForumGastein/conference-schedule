@@ -15,8 +15,8 @@ export default function ScheduleError({ message }: ScheduleErrorProps) {
         src={assetPath('ehfg-white.svg')}
         alt="EHFG Logo"
         width={120}
-        height={120}
-        className="mb-4 w-30 h-30"
+        height={118}
+        className="mb-4 w-30 h-auto"
         draggable={false}
         priority
       />
